@@ -1,0 +1,1926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-06-20 21:07:54</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:16.606053</p>
+<p class='attribute'><strong>Status:</strong> Error 31</p>
+
+<p class='description'>测试报告详情</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>AbortMultipartUpload.myUI_AbortMultipartuploadid</td>
+    <td>31</td>
+    <td>0</td>
+    <td>0</td>
+    <td>31</td>
+    <td><a href="javascript:showClassDetail('c1',31)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:07:54 GMT
+/caiyz-s10/mine-type.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:uYBWoNDB/CadnTjt0fXQteufBGA=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:uYBWoNDB/CadnTjt0fXQteufBGA=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:07:54 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:uYBWoNDB/CadnTjt0fXQteufBGA='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 215, in test_AbortMultipartUploadid
+    self.run_upload(self.filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10836d0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_Specialcharacters</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_Specialcharacters
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/%21%40%23%24%25%5E%26%2A.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:07:55 GMT
+/caiyz-s10/%21%40%23%24%25%5E%26%2A.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:SPPgKxxPzKuG46OotXFazOIQJ6g=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:SPPgKxxPzKuG46OotXFazOIQJ6g=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:07:55 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:SPPgKxxPzKuG46OotXFazOIQJ6g='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 610, in test_AbortMultipartUploadid_Specialcharacters
+    self.run_upload(filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/%21%40%23%24%25%5E%26%2A.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10d6750&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_error_xamzdate</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        error</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_error_xamzdate
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_error_xamzdate
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+
+x-amz-date:Tue, 20 Jun 2017 13:07:55 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:KJIIWf7c2oYs8XSw9NV+l75pzsw=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:KJIIWf7c2oYs8XSw9NV+l75pzsw=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'x-az-date': 'Tue, 20 Jun 2017 13:07:55 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:KJIIWf7c2oYs8XSw9NV+l75pzsw='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1271, in test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_error_xamzdate
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10d6b10&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_not</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        error</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_not
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_not
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+
+x-amz-date:Tue, 20 Jun 2017 13:07:56 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:4MpVEmVDh8u6jxu4IQ/7HVyiZ3A=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:4MpVEmVDh8u6jxu4IQ/7HVyiZ3A=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:4MpVEmVDh8u6jxu4IQ/7HVyiZ3A='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1231, in test_AbortMultipartUploadid_StringToSign_add_xamzdate_header_not
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10d6e90&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_StringToSign_adddate_header_not</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.5')" >
+        error</a>
+
+    <div id='div_ft1.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.5: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_adddate_header_not
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_adddate_header_not
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:07:56 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:YerLnkNS2j28SRk2bl1B0yrkvgA=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:YerLnkNS2j28SRk2bl1B0yrkvgA=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:YerLnkNS2j28SRk2bl1B0yrkvgA='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1056, in test_AbortMultipartUploadid_StringToSign_adddate_header_not
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10e6250&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_StringToSign_and_head_add_xamzdate</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.6')" >
+        error</a>
+
+    <div id='div_ft1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.6: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_and_head_add_xamzdate
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:07:57 GMT
+/caiyz-s10/mine-type.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:IA4wbf4eKjawyoIOEyUmYa1X6ZU=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:IA4wbf4eKjawyoIOEyUmYa1X6ZU=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:07:57 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:IA4wbf4eKjawyoIOEyUmYa1X6ZU='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1115, in test_AbortMultipartUploadid_StringToSign_and_head_add_xamzdate
+    self.run_upload(self.filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10e65d0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_StringToSign_and_header_addcontenttype</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.7')" >
+        error</a>
+
+    <div id='div_ft1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.7: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_and_header_addcontenttype
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:07:57 GMT
+/caiyz-s10/mine-type.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:IA4wbf4eKjawyoIOEyUmYa1X6ZU=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:IA4wbf4eKjawyoIOEyUmYa1X6ZU=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:07:57 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:IA4wbf4eKjawyoIOEyUmYa1X6ZU='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 905, in test_AbortMultipartUploadid_StringToSign_and_header_addcontenttype
+    self.run_upload(self.filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10e6950&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_StringToSign_contenttype_header_not</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.8')" >
+        error</a>
+
+    <div id='div_ft1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.8: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_contenttype_header_not
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_contenttype_header_not
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+text/plain
+Tue, 20 Jun 2017 13:07:58 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:96uHYhqhvCvE1m+cqCcPoxMXZ9A=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:96uHYhqhvCvE1m+cqCcPoxMXZ9A=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:07:58 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:96uHYhqhvCvE1m+cqCcPoxMXZ9A='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 887, in test_AbortMultipartUploadid_StringToSign_contenttype_header_not
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10e6cd0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_StringToSign_header_notdate</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.9')" >
+        error</a>
+
+    <div id='div_ft1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.9: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_header_notdate
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_StringToSign_header_notdate
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1096, in test_AbortMultipartUploadid_StringToSign_header_notdate
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f6090&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_aksk_iserror</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.10')" >
+        error</a>
+
+    <div id='div_ft1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.10: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_aksk_iserror
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_aksk_iserror
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:07:59 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS aa1f62dd58662a8c021049461d9a5db99eb8:GlxnUd2yeNf0L5kTCQ0z69fkRhM=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS aa1f62dd58662a8c021049461d9a5db99eb8:GlxnUd2yeNf0L5kTCQ0z69fkRhM=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:07:59 GMT', 'Authorization': 'AWS aa1f62dd58662a8c021049461d9a5db99eb8:GlxnUd2yeNf0L5kTCQ0z69fkRhM='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 553, in test_AbortMultipartUploadid_aksk_iserror
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f6410&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.11' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_aksk_nomatch</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.11')" >
+        error</a>
+
+    <div id='div_ft1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.11: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_aksk_nomatch
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_aksk_nomatch
+&gt;&gt;&gt;&gt;resource信息： /yw-caiyz1/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:00 GMT
+/yw-caiyz1/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:SQfwANXwwEs6+5OKLzWheGBgmHw=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:SQfwANXwwEs6+5OKLzWheGBgmHw=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:00 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:SQfwANXwwEs6+5OKLzWheGBgmHw='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/yw-caiyz1/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 515, in test_AbortMultipartUploadid_aksk_nomatch
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /yw-caiyz1/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f67d0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.12' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_bucket_InvalidBucketState</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.12')" >
+        error</a>
+
+    <div id='div_ft1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.12: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_bucket_InvalidBucketState
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_bucket_InvalidBucketState
+&gt;&gt;&gt;&gt;resource信息： /caiyze-test3/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:00 GMT
+/caiyze-test3/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:Q21Urxp6Tfh9xLNJsxzifRkQvzc=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:Q21Urxp6Tfh9xLNJsxzifRkQvzc=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:00 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:Q21Urxp6Tfh9xLNJsxzifRkQvzc='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyze-test3/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 397, in test_AbortMultipartUploadid_bucket_InvalidBucketState
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyze-test3/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f6b90&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.13' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_bucket_error</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.13')" >
+        error</a>
+
+    <div id='div_ft1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.13: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_bucket_error
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_bucket_error
+&gt;&gt;&gt;&gt;resource信息： /cazyzdi/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:01 GMT
+/cazyzdi/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:NHuDuKU2BS3ykJDfTMWC5Gtcmgg=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:NHuDuKU2BS3ykJDfTMWC5Gtcmgg=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:01 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:NHuDuKU2BS3ykJDfTMWC5Gtcmgg='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/cazyzdi/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 434, in test_AbortMultipartUploadid_bucket_error
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /cazyzdi/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f6f50&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.14' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_bucket_isnoexist</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.14')" >
+        error</a>
+
+    <div id='div_ft1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.14: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_bucket_isnoexist
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:08:01 GMT
+/caiyz-s10/mine-type.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:/tjCw14mEtjfsaamipBboOp7aF4=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:/tjCw14mEtjfsaamipBboOp7aF4=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:01 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:/tjCw14mEtjfsaamipBboOp7aF4='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 339, in test_AbortMultipartUploadid_bucket_isnoexist
+    self.run_upload(self.filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x1107310&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.15' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_filename_ischinese</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.15')" >
+        error</a>
+
+    <div id='div_ft1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.15: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_filename_ischinese
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/%E4%B8%AD%E6%96%87.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:08:02 GMT
+/caiyz-s10/%E4%B8%AD%E6%96%87.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:0B8XGb8R4Pq/Df6wc4/HazzXyjI=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:0B8XGb8R4Pq/Df6wc4/HazzXyjI=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:02 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:0B8XGb8R4Pq/Df6wc4/HazzXyjI='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 661, in test_AbortMultipartUploadid_filename_ischinese
+    self.run_upload(filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/%E4%B8%AD%E6%96%87.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x11076d0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.16' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_head_add_xamzdate_StringToSign_not</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.16')" >
+        error</a>
+
+    <div id='div_ft1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.16: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_head_add_xamzdate_StringToSign_not
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_head_add_xamzdate_StringToSign_not
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'x-amz-date': 'Tue, 20 Jun 2017 13:08:02 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1191, in test_AbortMultipartUploadid_head_add_xamzdate_StringToSign_not
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x1107a10&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.17' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_header_Authorization_changeto_Authzation</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.17')" >
+        error</a>
+
+    <div id='div_ft1.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.17: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_Authorization_changeto_Authzation
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_Authorization_changeto_Authzation
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:03 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:vD30dN+z/6p1fCPVtT6cvngi2JU=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:03 GMT', 'Authzation': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:vD30dN+z/6p1fCPVtT6cvngi2JU='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1489, in test_AbortMultipartUploadid_header_Authorization_changeto_Authzation
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x1107dd0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.18' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_header_adddate_StringToSign_not</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.18')" >
+        error</a>
+
+    <div id='div_ft1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.18: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_adddate_StringToSign_not
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_adddate_StringToSign_not
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:03 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dL8wNvNHz5RV/ubxc13TiuPuSVo='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1018, in test_AbortMultipartUploadid_header_adddate_StringToSign_not
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x118d150&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.19' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_header_addmd5_StringToSign_not</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.19')" >
+        error</a>
+
+    <div id='div_ft1.19' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.19: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_addmd5_StringToSign_not
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:08:04 GMT
+/caiyz-s10/mine-type.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dION1jO0BTn9bgb3cysoL/V23dk=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dION1jO0BTn9bgb3cysoL/V23dk=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:04 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:dION1jO0BTn9bgb3cysoL/V23dk='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 959, in test_AbortMultipartUploadid_header_addmd5_StringToSign_not
+    self.run_upload(self.filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x118d4d0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.20' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_header_contenttype_StringToSign_not</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.20')" >
+        error</a>
+
+    <div id='div_ft1.20' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.20: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_contenttype_StringToSign_not
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_contenttype_StringToSign_not
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:04 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:R1shBHgbYmSjHK6iLvTJJHdK30E=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:R1shBHgbYmSjHK6iLvTJJHdK30E=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:04 GMT', 'Content-Type': '\xe4\xb8\xad\xe6\x96\x87', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:R1shBHgbYmSjHK6iLvTJJHdK30E='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 849, in test_AbortMultipartUploadid_header_contenttype_StringToSign_not
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x118d850&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.21' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_header_contenttype_ischinese</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.21')" >
+        error</a>
+
+    <div id='div_ft1.21' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.21').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.21: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_contenttype_ischinese
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.run_upload
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.InitialMultipartUpload_ok
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploads
+鉴权信息stringToSign:  POST
+
+
+Tue, 20 Jun 2017 13:08:05 GMT
+/caiyz-s10/mine-type.mp4?uploads
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:9m7AuohWUhT1akbDVBdC2CBbMzA=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:9m7AuohWUhT1akbDVBdC2CBbMzA=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:05 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:9m7AuohWUhT1akbDVBdC2CBbMzA='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 791, in test_AbortMultipartUploadid_header_contenttype_ischinese
+    self.run_upload(self.filename,self.slicepath)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 191, in run_upload
+    self.InitialMultipartUpload_ok(objectname)
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 109, in InitialMultipartUpload_ok
+    rq = requests.post(url=s3url,headers=headers,timeout=30)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploads (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x118dbd0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.22' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_header_misstoken</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.22')" >
+        error</a>
+
+    <div id='div_ft1.22' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.22').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.22: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_misstoken
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_misstoken
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:05 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:ZKgivjg0Hv8HR6Kc1F+D+ncFo2I=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:ZKgivjg0Hv8HR6Kc1F+D+ncFo2I=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:05 GMT', 'Authorization': ''}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 773, in test_AbortMultipartUploadid_header_misstoken
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x118df50&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.23' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_header_unsupoort_xamzserversideencryptioncustomerkeyMD5</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.23')" >
+        error</a>
+
+    <div id='div_ft1.23' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.23').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.23: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_unsupoort_xamzserversideencryptioncustomerkeyMD5
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_header_unsupoort_xamzserversideencryptioncustomerkeyMD5
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:06 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:VSU7aIsEAgiyzDMqhMdRjvu6Nls=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:VSU7aIsEAgiyzDMqhMdRjvu6Nls=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:06 GMT', 'x-amz-server-side-encryption-customer-key-MD5': 'DDDDDDDD', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:VSU7aIsEAgiyzDMqhMdRjvu6Nls='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 734, in test_AbortMultipartUploadid_header_unsupoort_xamzserversideencryptioncustomerkeyMD5
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x119f310&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.24' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_keytoolong</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.24')" >
+        error</a>
+
+    <div id='div_ft1.24' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.24').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.24: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_keytoolong
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_keytoolong
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:07 GMT
+/caiyz-s10/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:n3U5PC260/BD/o+dOerDBJmcguY=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:n3U5PC260/BD/o+dOerDBJmcguY=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:07 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:n3U5PC260/BD/o+dOerDBJmcguY='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 477, in test_AbortMultipartUploadid_keytoolong
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x119f690&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.25' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_token_AWS_changeto_AS</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.25')" >
+        error</a>
+
+    <div id='div_ft1.25' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.25').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.25: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_AWS_changeto_AS
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_AWS_changeto_AS
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:07 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:lQr6qKR4FeHMhc6AzIZY/yammQY=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:07 GMT', 'Authorization': 'AS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:lQr6qKR4FeHMhc6AzIZY/yammQY='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1402, in test_AbortMultipartUploadid_token_AWS_changeto_AS
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x119fa50&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.26' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_token_miss_AWS</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.26')" >
+        error</a>
+
+    <div id='div_ft1.26' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.26').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.26: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_miss_AWS
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_miss_AWS
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:08 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+72ced9249a1cb518b08a10e4719b8c4b4542c20a:OmdnQr6t4EjKwB9FW7umeIxWyHk=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:08 GMT', 'Authorization': '72ced9249a1cb518b08a10e4719b8c4b4542c20a:OmdnQr6t4EjKwB9FW7umeIxWyHk='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1359, in test_AbortMultipartUploadid_token_miss_AWS
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x119fdd0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.27' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_token_miss_StringToSign</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.27')" >
+        error</a>
+
+    <div id='div_ft1.27' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.27').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.27: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_miss_StringToSign
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_miss_StringToSign
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:08 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:08 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:'}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1315, in test_AbortMultipartUploadid_token_miss_StringToSign
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x11b1190&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.28' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_token_more_space</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.28')" >
+        error</a>
+
+    <div id='div_ft1.28' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.28').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.28: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_more_space
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_more_space
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:09 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS   72ced9249a1cb518b08a10e4719b8c4b4542c20a:mv2XqRvrJ1qkDu7un+n9jRGtHuU=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:09 GMT', 'Authorization': 'AWS   72ced9249a1cb518b08a10e4719b8c4b4542c20a:mv2XqRvrJ1qkDu7un+n9jRGtHuU='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 1446, in test_AbortMultipartUploadid_token_more_space
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x11b1510&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.29' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_token_outime</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.29')" >
+        error</a>
+
+    <div id='div_ft1.29' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.29').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.29: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_outime
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_token_outime
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 12:52:09 GMT
+/caiyz-s10/mine-type.mp4?uploadId=
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:/nDQyG/WJEjceBpdwS2vw0a2X2o=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:/nDQyG/WJEjceBpdwS2vw0a2X2o=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 12:52:09 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:/nDQyG/WJEjceBpdwS2vw0a2X2o='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 590, in test_AbortMultipartUploadid_token_outime
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId= (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x11b1850&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.30' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_uploadid_iserror</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.30')" >
+        error</a>
+
+    <div id='div_ft1.30' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.30').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.30: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_uploadid_iserror
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_uploadid_iserror
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadDDId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A--
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:10 GMT
+/caiyz-s10/mine-type.mp4?uploadDDId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A--
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:k2fYVJ3ofa9PfNRjFndwf8R/l/E=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:k2fYVJ3ofa9PfNRjFndwf8R/l/E=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:10 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:k2fYVJ3ofa9PfNRjFndwf8R/l/E='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadDDId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A--
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 321, in test_AbortMultipartUploadid_uploadid_iserror
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadDDId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A-- (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x11b1c10&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.31' class='none'>
+    <td class='errorCase'><div class='testcase'>test_AbortMultipartUploadid_uploadid_isnotexist</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.31')" >
+        error</a>
+
+    <div id='div_ft1.31' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.31').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.31: &gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_uploadid_isnotexist
+&gt;&gt;&gt;&gt;当前执行函数名称: myUI_AbortMultipartuploadid.test_AbortMultipartUploadid_uploadid_isnotexist
+&gt;&gt;&gt;&gt;resource信息： /caiyz-s10/mine-type.mp4?uploadId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A--
+鉴权信息stringToSign:  DELETE
+
+
+Tue, 20 Jun 2017 13:08:10 GMT
+/caiyz-s10/mine-type.mp4?uploadId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A--
+生成token信息： AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:eWt8NlejxNIgZ3FrZqXbbX1dQGk=
+&gt;&gt;&gt;&gt;鉴权后的token信息:
+AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:eWt8NlejxNIgZ3FrZqXbbX1dQGk=
+&gt;&gt;&gt;&gt;请求头部信息headers:
+{'Date': 'Tue, 20 Jun 2017 13:08:10 GMT', 'Authorization': 'AWS 72ced9249a1cb518b08a10e4719b8c4b4542c20a:eWt8NlejxNIgZ3FrZqXbbX1dQGk='}
+&gt;&gt;&gt;&gt;请求的s3url:
+http://apitest_user.region98.s1.wcsapi.com:8998/caiyz-s10/mine-type.mp4?uploadId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A--
+Traceback (most recent call last):
+  File "/root/.jenkins/workspace/python_test/default/AbortMultipartUpload.py", line 283, in test_AbortMultipartUploadid_uploadid_isnotexist
+    rq = requests.delete(url=s3url,headers=headers)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 152, in delete
+    return request('delete', url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 513, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/sessions.py", line 623, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python2.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectionError(e, request=request)
+ConnectionError: HTTPConnectionPool(host='apitest_user.region98.s1.wcsapi.com', port=8998): Max retries exceeded with url: /caiyz-s10/mine-type.mp4?uploadId=VIVKlbJlIz17TkWsrPT07Vcvd27GU7X3Ya3qt2Kqna47rpHd25o2aqvAsBUPKB8u1XEkPzKosiBmMBi8724S2A-- (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x11b1fd0&gt;: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>31</td>
+    <td>0</td>
+    <td>0</td>
+    <td>31</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
